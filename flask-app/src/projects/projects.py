@@ -5,11 +5,11 @@ from src import db
 
 projects = Blueprint('projects', __name__)
 
-# Get all customers from the DB
+# Get all projects from the DB
 @projects.route('/projects', methods=['GET'])
 def get_projects():
     cursor = db.get_db().cursor()
-    cursor.execute('select * from projects')
+    cursor.execute('select * from Projects')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -20,11 +20,11 @@ def get_projects():
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get customer detail for customer with particular userID
-@projects.route('/customers/<userID>', methods=['GET'])
-def get_customer(userID):
+# Get project detail for project with particular project_id
+@projects.route('/projects/<project_id>', methods=['GET'])
+def get_project_detail(project_id):
     cursor = db.get_db().cursor()
-    cursor.execute('select * from customers where id = {0}'.format(userID))
+    cursor.execute('select * from Projects where project_id = {0}'.format(project_id))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -35,7 +35,3 @@ def get_customer(userID):
     the_response.mimetype = 'application/json'
     return the_response
 
-@projects.route('/customers/test', methods=['POST'])
-def test_post():
-    the_response = make_response(jsonify("hello"))
-    return the_response
