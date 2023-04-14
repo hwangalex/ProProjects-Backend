@@ -102,6 +102,20 @@ def create_project_ticket(project_id):
 
     return ("Success")
 
+# Delete a particular ticket for a particular project
+@projects.route('/projects/<project_id>/tickets/<ticket_id>', methods=['DELETE'])
+def delete_project_ticket(project_id, ticket_id):
+    
+    query = 'delete from Tickets where ticket_id = {0}'.format(ticket_id)
+
+    current_app.logger.info(query)
+
+    # cursor = db.get_db().cursor()
+    # cursor.execute(query)
+    # db.get_db().commit()
+
+    return ("Success")
+
 # Update a particular ticket of a particular project
 @projects.route('/projects/<project_id>/tickets/<ticket_id>', methods=['PUT'])
 def update_project_ticket(project_id, ticket_id):
