@@ -35,6 +35,66 @@ def get_project_detail(project_id):
     the_response.mimetype = 'application/json'
     return the_response
 
+# Create a new project
+@projects.route('/projects/<project_id>/', methods=['POST'])
+def create_project(project_id):
+    data = request.json
+    
+    project_id = data["project_id"]
+    client_id = data["client_id"]
+    project_name = data["project_name"]
+    project_difficulty = data["project_difficulty"]
+    project_desc = data["project_desc"]
+    
+    query = 'insert into Project (project_id, client_id, project_name, project_difficulty, project_desc) values ("'
+    query += str(project_id) + '",'
+    query += str(client_id) + ', "'
+    query += project_name + '", '
+    query += project_difficulty + '",'
+    query += project_desc + ')'
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return ("Success")
+
+# Update a particular project
+@projects.route('/projects/<project_id>/', methods=['PUT'])
+def update_project(project_id):
+    data = request.json
+    
+    project_id = data["project_id"]
+    client_id = data["client_id"]
+    project_name = data["project_name"]
+    project_difficulty = data["project_difficulty"]
+    project_desc = data["project_desc"]
+    
+    query = 'update Projects set '
+    query += str(project_id) + '",'
+    query += str(client_id) + ', "'
+    query += project_name + '", '
+    query += project_difficulty + '",'
+    query += project_desc + ')'
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return ("Success")
+
+# Delete a particular project
+@projects.route('/projects/<project_id>/', methods=['DELETE'])
+def delete_project(project_id):
+    
+    query = 'delete from Projects where project_id = {0}'.format(project_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return ("Success")
+
 # Get all tickets of a particular project_id
 @projects.route('/projects/<project_id>/tickets', methods=['GET'])
 def get_project_tickets(project_id):
