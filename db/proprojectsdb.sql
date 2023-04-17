@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS proprojectsdb;
+CREATE DATABASE proprojectsdb;
 
 USE `proprojectsdb`;
 
@@ -1660,13 +1660,13 @@ CREATE TABLE Employees
     supervisor_id int,
     team_id       int,
     CONSTRAINT fk_9 FOREIGN KEY (supervisor_id) REFERENCES Employees (employee_id)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
     CONSTRAINT fk_10 FOREIGN KEY (team_id) REFERENCES Teams (team_id)
         ON DELETE RESTRICT
         ON UPDATE CASCADE,
     CONSTRAINT fk_99 FOREIGN KEY (project_id) REFERENCES Projects (project_id)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
@@ -3069,4 +3069,3 @@ VALUES (1, 1)
      , (8, 278)
      , (9, 279)
      , (10, 280);
-
