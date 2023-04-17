@@ -128,23 +128,8 @@ def get_all_employees():
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get all employees (ID) working on a specific project
-@employees.route('/employees/<employee_id>/', methods=['GET'])
-def get_employees_on_project(project_id):
-    cursor = db.get_db().cursor()
-    cursor.execute('select employee_id from Employees where project_id = {0}'.format(project_id))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
-
 # Get all employees (ID) in a specific team
-@employees.route('/employees/<employee_id>/', methods=['GET'])
+@employees.route('/employees/team/<team_id>/', methods=['GET'])
 def get_employees_on_team(team_id):
     cursor = db.get_db().cursor()
     cursor.execute('select employee_id from Employees where team_id = {0}'.format(team_id))
@@ -158,11 +143,11 @@ def get_employees_on_team(team_id):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get all employees (ID) that are either remote or not
-@employees.route('/employees/<employee_id>/', methods=['GET'])
-def get_employee_remote(is_remote):
+# Get all employees (ID) that are remote
+@employees.route('/employees/is_remote/', methods=['GET'])
+def get_employee_remote():
     cursor = db.get_db().cursor()
-    cursor.execute('select employee_id from Employees where is_remote = {0}'.format(is_remote))
+    cursor.execute('select employee_id from Employees where is_remote = True')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
