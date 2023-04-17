@@ -36,23 +36,23 @@ def get_project_detail(project_id):
     return the_response
 
 # Create a new project
-@projects.route('/projects/<project_id>/', methods=['POST'])
-def create_project(project_id):
+@projects.route('/projects', methods=['POST'])
+def create_project():
     data = request.json
     
-    project_id = data["project_id"]
     client_id = data["client_id"]
     project_name = data["project_name"]
     project_difficulty = data["project_difficulty"]
     project_desc = data["project_desc"]
     
-    query = 'insert into Project (project_id, client_id, project_name, project_difficulty, project_desc) values ("'
-    query += str(project_id) + '",'
+    query = 'insert into Projects (client_id, project_name, project_difficulty, project_desc) values ('
     query += str(client_id) + ', "'
-    query += project_name + '", '
-    query += project_difficulty + '",'
-    query += project_desc + ')'
+    query += project_name + '", "'
+    query += project_difficulty + '", "'
+    query += project_desc + '")'
 
+    
+    current_app.logger.info(query)
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
@@ -84,8 +84,10 @@ def update_project(project_id):
     return ("Success")
 
 # Delete a particular project
-@projects.route('/projects/<project_id>/', methods=['DELETE'])
-def delete_project(project_id):
+@projects.route('/projects/', methods=['DELETE'])
+def delete_project():
+    data = request.json
+    project_id = data["project_id"]
     
     query = 'delete from Projects where project_id = {0}'.format(project_id)
 

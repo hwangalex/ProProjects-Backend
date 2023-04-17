@@ -555,10 +555,10 @@ CREATE TABLE Team_projects
     team_id    int,
     PRIMARY KEY (project_id, team_id),
     CONSTRAINT fk_4 FOREIGN KEY (project_id) REFERENCES Projects (project_id)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
     CONSTRAINT fk_5 FOREIGN KEY (team_id) REFERENCES Teams (team_id)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
