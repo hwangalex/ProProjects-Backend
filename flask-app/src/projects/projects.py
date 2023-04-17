@@ -45,12 +45,14 @@ def create_project():
     project_difficulty = data["project_difficulty"]
     project_desc = data["project_desc"]
     
-    query = 'insert into Project (client_id, project_name, project_difficulty, project_desc) values ("'
+    query = 'insert into Projects (client_id, project_name, project_difficulty, project_desc) values ('
     query += str(client_id) + ', "'
-    query += project_name + '", '
-    query += project_difficulty + '",'
-    query += project_desc + ')'
+    query += project_name + '", "'
+    query += project_difficulty + '", "'
+    query += project_desc + '")'
 
+    
+    current_app.logger.info(query)
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
