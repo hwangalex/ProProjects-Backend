@@ -50,5 +50,140 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "8663f8a0-2a24-4bda-bb31-81054e2d312b",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "get_all_employees",
+    "url": "localhost:8001/e/employees",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-04-17T00:51:29.589Z",
+    "modified": "2023-04-17T01:07:21.170Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "f8b063ff-9a7a-44e5-83ef-d876abdcd715",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "get_employee_detail",
+    "url": "localhost:8001/e/employees/1/",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-17T00:53:13.107Z",
+    "modified": "2023-04-17T01:07:25.163Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.city",
+        "action": "equal",
+        "value": "Baishui"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.country",
+        "action": "equal",
+        "value": "China"
+      }
+    ]
+  },
+  {
+    "_id": "2e552add-bb88-4120-8d15-82d08d7410b8",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "get_employees_on_team",
+    "url": "localhost:8001/e/employees/team/1/",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-04-17T01:08:13.818Z",
+    "modified": "2023-04-17T01:09:59.794Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.employee_id",
+        "action": "equal",
+        "value": "[47,129,173,198,248,259,275]"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "821bb498-e709-4724-a892-a4c4814d563f",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "get_employee_remote",
+    "url": "localhost:8001/e/employees/is_remote",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-04-17T01:13:54.348Z",
+    "modified": "2023-04-17T01:18:28.110Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "Content-Length",
+        "custom": "",
+        "action": "equal",
+        "value": "4015"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "797286d5-84e5-4c84-9503-69b15937ea83",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "get_employee_project",
+    "url": "localhost:8001/e/employees/1/projects",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-04-17T01:18:48.476Z",
+    "modified": "2023-04-17T01:20:00.410Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.project_name",
+        "action": "equal",
+        "value": "Subin"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<=",
+        "value": "10"
+      }
+    ]
   }
 ]
