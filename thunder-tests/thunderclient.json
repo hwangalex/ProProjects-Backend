@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-17T18:15:57.700Z",
-    "modified": "2023-04-17T18:16:46.897Z",
+    "modified": "2023-04-17T22:33:38.368Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -28,6 +28,25 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"client_id\": 1,\n  \"project_name\": \"Facebook\",\n  \"project_difficulty\": \"Medium\",\n  \"project_desc\": \"Horrible website that harms children\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "43c04df7-c78b-45d7-b141-e73f73d074a3",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "delete_project",
+    "url": "http://localhost:8001/p/projects",
+    "method": "DELETE",
+    "sortNum": 30000,
+    "created": "2023-04-17T22:45:42.721Z",
+    "modified": "2023-04-17T22:46:08.271Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"project_id\": 41\n}",
       "form": []
     },
     "tests": []

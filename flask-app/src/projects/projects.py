@@ -84,8 +84,10 @@ def update_project(project_id):
     return ("Success")
 
 # Delete a particular project
-@projects.route('/projects/<project_id>/', methods=['DELETE'])
-def delete_project(project_id):
+@projects.route('/projects/', methods=['DELETE'])
+def delete_project():
+    data = request.json
+    project_id = data["project_id"]
     
     query = 'delete from Projects where project_id = {0}'.format(project_id)
 
