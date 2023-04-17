@@ -36,18 +36,16 @@ def get_project_detail(project_id):
     return the_response
 
 # Create a new project
-@projects.route('/projects/<project_id>/', methods=['POST'])
-def create_project(project_id):
+@projects.route('/projects', methods=['POST'])
+def create_project():
     data = request.json
     
-    project_id = data["project_id"]
     client_id = data["client_id"]
     project_name = data["project_name"]
     project_difficulty = data["project_difficulty"]
     project_desc = data["project_desc"]
     
-    query = 'insert into Project (project_id, client_id, project_name, project_difficulty, project_desc) values ("'
-    query += str(project_id) + '",'
+    query = 'insert into Project (client_id, project_name, project_difficulty, project_desc) values ("'
     query += str(client_id) + ', "'
     query += project_name + '", '
     query += project_difficulty + '",'
