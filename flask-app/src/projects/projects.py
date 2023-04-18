@@ -60,22 +60,21 @@ def create_project():
     return ("Success")
 
 # Update a particular project
-@projects.route('/projects/<project_id>/', methods=['PUT'])
+@projects.route('/projects/<project_id>', methods=['PUT'])
 def update_project(project_id):
     data = request.json
-    
-    project_id = data["project_id"]
-    client_id = data["client_id"]
-    project_name = data["project_name"]
-    project_difficulty = data["project_difficulty"]
-    project_desc = data["project_desc"]
-    
+
+    client_id = data["updated_client_id"]
+    project_name = data["updated_project_name"]
+    project_difficulty = data["updated_project_difficulty"]
+    project_desc = data["updated_project_desc"]
+
     query = 'update Projects set '
-    query += str(project_id) + ', '
-    query += str(client_id) + ', "'
-    query += project_name + '", "'
-    query += project_difficulty + '", "'
-    query += project_desc + '"'
+    query += 'client_id = ' + str(client_id) + ', '
+    query += 'project_name = "' + project_name + '", '
+    query += 'project_difficulty = "' + project_difficulty + '", '
+    query += 'project_desc = "' + project_desc + '" '
+    query += 'where project_id = ' + str(project_id) + ' '
 
     cursor = db.get_db().cursor()
     cursor.execute(query)
