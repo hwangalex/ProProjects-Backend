@@ -71,11 +71,11 @@ def update_project(project_id):
     project_desc = data["project_desc"]
     
     query = 'update Projects set '
-    query += str(project_id) + '",'
+    query += str(project_id) + ', "'
     query += str(client_id) + ', "'
-    query += project_name + '", '
-    query += project_difficulty + '",'
-    query += project_desc + ')'
+    query += project_name + '", "'
+    query += project_difficulty + '", "'
+    query += project_desc + '"'
 
     cursor = db.get_db().cursor()
     cursor.execute(query)

@@ -138,12 +138,12 @@
     "_id": "17aa771a-fc0b-42e2-a4df-684ef0d58e62",
     "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
     "containerId": "",
-    "name": "get_projects",
-    "url": "http://localhost:8001/p/projects",
+    "name": "get_all_projects",
+    "url": "localhost:8001/p/projects",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-17T18:15:57.700Z",
-    "modified": "2023-04-18T03:05:23.699Z",
+    "modified": "2023-04-18T20:23:29.587Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -166,11 +166,11 @@
     "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
     "containerId": "",
     "name": "create_project",
-    "url": "http://localhost:8001/p/projects",
+    "url": "localhost:8001/p/projects",
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-04-17T22:26:19.041Z",
-    "modified": "2023-04-18T03:17:02.882Z",
+    "modified": "2023-04-18T20:23:39.617Z",
     "headers": [],
     "params": [],
     "body": {
@@ -184,6 +184,12 @@
         "custom": "",
         "action": "equal",
         "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
       }
     ]
   },
@@ -192,11 +198,11 @@
     "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
     "containerId": "",
     "name": "delete_project",
-    "url": "http://localhost:8001/p/projects",
+    "url": "localhost:8001/p/projects",
     "method": "DELETE",
     "sortNum": 30000,
     "created": "2023-04-17T22:45:42.721Z",
-    "modified": "2023-04-18T18:25:21.378Z",
+    "modified": "2023-04-18T20:23:43.694Z",
     "headers": [],
     "params": [],
     "body": {
@@ -228,7 +234,7 @@
     "method": "POST",
     "sortNum": 100000,
     "created": "2023-04-18T02:55:56.248Z",
-    "modified": "2023-04-18T18:43:06.650Z",
+    "modified": "2023-04-18T20:53:31.705Z",
     "headers": [],
     "params": [],
     "body": {
@@ -280,6 +286,234 @@
         "custom": "",
         "action": "equal",
         "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "cad8d35f-ec5d-49e5-a212-23214cba9053",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "update_employee",
+    "url": "localhost:8001/e/employees/1/",
+    "method": "PUT",
+    "sortNum": 130000,
+    "created": "2023-04-18T20:00:12.785Z",
+    "modified": "2023-04-18T20:19:41.479Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\": 1,\n  \"first_name\": \"Karlyn\",\n  \"last_name\": \"Grafhom\",\n  \"country\": \"China\",\n  \"city\": \"Hong Kong\",\n  \"state\": \"abc\",\n  \"zip_code\": \"abc\",\n  \"gender\": \"Female\",\n  \"date_of_birth\": \"1968-11-26 01:26:42\",\n  \"salary\": \"$272050.01\",\n  \"project_id\": 35,\n  \"is_remote\": true,\n  \"supervisor_id\": 10,\n  \"team_id\": 23\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "f3c8f9a5-dd3a-4ce3-b139-abc0addb16bb",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_detail",
+    "url": "localhost:8001/p/projects/1",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-04-18T20:23:19.083Z",
+    "modified": "2023-04-18T20:24:52.158Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.project_name",
+        "action": "equal",
+        "value": "Voltsillam"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.project_id",
+        "action": "equal",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "_id": "c6f9fee1-d6be-4f2e-9c58-b05b1c29d0bd",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_tickets",
+    "url": "localhost:8001/p/projects/1/tickets",
+    "method": "GET",
+    "sortNum": 17500,
+    "created": "2023-04-18T20:25:38.570Z",
+    "modified": "2023-04-18T20:26:50.417Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "97099a45-49be-477a-b631-31a05cf60cae",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_ticket_type",
+    "url": "localhost:8001/p/projects/1/tickets/type/1",
+    "method": "GET",
+    "sortNum": 18750,
+    "created": "2023-04-18T20:27:21.293Z",
+    "modified": "2023-04-18T20:34:07.904Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "84b20bb0-bee2-4873-b231-fe32fca58fc1",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_ticket_detail",
+    "url": "localhost:8001/p/projects/1/tickets/1",
+    "method": "GET",
+    "sortNum": 19375,
+    "created": "2023-04-18T20:34:42.042Z",
+    "modified": "2023-04-18T20:35:41.674Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.ticket_id",
+        "action": "equal",
+        "value": "1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.ticket_name",
+        "action": "equal",
+        "value": "Capsicum pubescens Ruiz & Pav."
+      }
+    ]
+  },
+  {
+    "_id": "eb73d371-cb33-4edd-be96-7dc93e0e4573",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "update_project",
+    "url": "localhost:8001/p/projects/2",
+    "method": "PUT",
+    "sortNum": 90000,
+    "created": "2023-04-18T20:35:57.518Z",
+    "modified": "2023-04-18T20:55:12.211Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"project_id\": 2,\n  \"client_id\": 28,\n  \"project_name\": \"Alpha\",\n  \"project_difficulty\": \"Medium\",\n  \"project_desc\":\"Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "033cc8af-88fa-4cea-b659-9155362133c2",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "create_project_ticket",
+    "url": "",
+    "method": "POST",
+    "sortNum": 100000,
+    "created": "2023-04-18T20:42:04.259Z",
+    "modified": "2023-04-18T20:42:07.157Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "e1afb189-d664-4da9-9a49-7153ddf8899f",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "delete_project_ticket",
+    "url": "",
+    "method": "DELETE",
+    "sortNum": 110000,
+    "created": "2023-04-18T20:42:20.818Z",
+    "modified": "2023-04-18T20:42:23.549Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "820e7cea-60c0-4991-85c6-b1e5f28c1417",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "update_project_ticket",
+    "url": "",
+    "method": "PUT",
+    "sortNum": 120000,
+    "created": "2023-04-18T20:42:37.220Z",
+    "modified": "2023-04-18T20:42:39.812Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "20749a15-7e9d-4346-9421-ee1b921a5feb",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_ticket_employees",
+    "url": "localhost:8001/p/projects/1/tickets/1/employees",
+    "method": "GET",
+    "sortNum": 19687.5,
+    "created": "2023-04-18T20:43:02.143Z",
+    "modified": "2023-04-18T20:43:54.416Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
       }
     ]
   }
