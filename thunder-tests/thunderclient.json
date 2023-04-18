@@ -116,7 +116,7 @@
     "method": "GET",
     "sortNum": 80000,
     "created": "2023-04-17T01:18:48.476Z",
-    "modified": "2023-04-17T01:20:00.410Z",
+    "modified": "2023-04-18T18:23:03.618Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -127,10 +127,10 @@
         "value": "Subin"
       },
       {
-        "type": "res-time",
+        "type": "res-code",
         "custom": "",
-        "action": "<=",
-        "value": "10"
+        "action": "equal",
+        "value": "200"
       }
     ]
   },
@@ -170,7 +170,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-04-17T22:26:19.041Z",
-    "modified": "2023-04-18T03:08:08.890Z",
+    "modified": "2023-04-18T03:17:02.882Z",
     "headers": [],
     "params": [],
     "body": {
@@ -196,7 +196,7 @@
     "method": "DELETE",
     "sortNum": 30000,
     "created": "2023-04-17T22:45:42.721Z",
-    "modified": "2023-04-17T22:46:08.271Z",
+    "modified": "2023-04-18T18:25:21.378Z",
     "headers": [],
     "params": [],
     "body": {
@@ -204,18 +204,83 @@
       "raw": "{\n  \"project_id\": 41\n}",
       "form": []
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "96805993-79db-4bc5-ba03-c6533bd047ce",
     "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
     "containerId": "",
     "name": "create_employee",
-    "url": "",
-    "method": "GET",
+    "url": "localhost:8001/e/employees",
+    "method": "POST",
     "sortNum": 100000,
     "created": "2023-04-18T02:55:56.248Z",
-    "modified": "2023-04-18T02:55:56.248Z",
-    "headers": []
+    "modified": "2023-04-18T18:43:06.650Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\": 50,\n  \"first_name\": \"Bob\",\n  \"last_name\": \"Kim\",\n  \"country\": \"United States\",\n  \"city\": \"Austin\",\n  \"state\": \"Texas\",\n  \"zip_code\": \"12345\",\n  \"gender\": \"Male\",\n  \"date_of_birth\": \"1970-12-20 03:03:04\",\n  \"salary\": \"$123450.00\",\n  \"project_id\": 35,\n  \"is_remote\": true,\n  \"supervisor_id\": 10,\n  \"team_id\": 23\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "987dc081-ed40-40d2-9524-4607b067d6ba",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "delete_employee",
+    "url": "localhost:8001/e/employees/",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2023-04-18T18:14:46.831Z",
+    "modified": "2023-04-18T18:42:37.885Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\": 50\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   }
 ]

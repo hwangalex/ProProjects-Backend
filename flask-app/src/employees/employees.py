@@ -5,8 +5,8 @@ from src import db
 employees = Blueprint('employees', __name__)
 
 # Create a new employee
-@employees.route('/employees/<employee_id>/', methods=['POST'])
-def create_employee(employee_id):
+@employees.route('/employees', methods=['POST'])
+def create_employee():
     data = request.json
     
     employee_id = data["employee_id"]
@@ -24,19 +24,20 @@ def create_employee(employee_id):
     supervisor_id = data["supervisor_id"]
     team_id = data["team_id"]
     
-    query = 'insert into Employees (employee_id, first_name, last_name, country, city, state, zip_code, gender, date_of_birth, salary, project_id, is_remote, supervisor_id, team_id) values ("'
-    query += str(employee_id) + '",'
-    query += first_name + ', "'
-    query += last_name + '", '
-    query += country + '",'
-    query += state + '",'
-    query += zip_code + ', "'
-    query += gender + '", '
-    query += str(date_of_birth) + '",'
-    query += salary + '",'
-    query += str(project_id) + ', "'
-    query += str(is_remote) + '", '
-    query += str(supervisor_id) + '",'
+    query = 'insert into Employees (employee_id, first_name, last_name, country, city, state, zip_code, gender, date_of_birth, salary, project_id, is_remote, supervisor_id, team_id) values ('
+    query += str(employee_id) + ', "'
+    query += first_name + '", "'
+    query += last_name + '", "'
+    query += country + '", "'
+    query += city + '", "'
+    query += state + '", "'
+    query += zip_code + '", "'
+    query += gender + '", "'
+    query += date_of_birth + '", "'
+    query += salary + '", '
+    query += str(project_id) + ', '
+    query += str(is_remote) + ', '
+    query += str(supervisor_id) + ', '
     query += str(team_id) + ')'
 
     cursor = db.get_db().cursor()
@@ -87,8 +88,10 @@ def update_employee(employee_id):
     return ("Success")
 
 # Delete a particular employee
-@employees.route('/employees/<employees_id>/', methods=['DELETE'])
-def employee(employee_id):
+@employees.route('/employees/', methods=['DELETE'])
+def employee():
+    data = request.json
+    employee_id = data["employee_id"]
     
     query = 'delete from Employees where employee_id = {0}'.format(employee_id)
 
