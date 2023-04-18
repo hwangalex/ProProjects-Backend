@@ -292,9 +292,28 @@
     "method": "GET",
     "sortNum": 130000,
     "created": "2023-04-18T20:07:34.681Z",
-    "modified": "2023-04-18T20:09:05.329Z",
+    "modified": "2023-04-18T20:33:09.050Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.department_id",
+        "action": "equal",
+        "value": "3"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.team_id",
+        "action": "equal",
+        "value": "23"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.team_name",
+        "action": "equal",
+        "value": "Stronghold"
+      }
+    ]
   }
 ]
