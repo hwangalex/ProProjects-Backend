@@ -292,7 +292,7 @@
     "method": "GET",
     "sortNum": 130000,
     "created": "2023-04-18T20:07:34.681Z",
-    "modified": "2023-04-18T20:33:09.050Z",
+    "modified": "2023-04-18T20:44:43.727Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -313,6 +313,12 @@
         "custom": "json.team_name",
         "action": "equal",
         "value": "Stronghold"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.meeting_time",
+        "action": "equal",
+        "value": "13:55:57"
       }
     ]
   }

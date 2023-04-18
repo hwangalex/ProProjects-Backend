@@ -150,12 +150,21 @@ def get_employees_on_team(team_id):
 @employees.route('/employees/team_details/<employee_id>/', methods=['GET'])
 def get_employee_team(employee_id):
     cursor = db.get_db().cursor()
-    cursor.execute('select t.team_id, team_name, department_id from Teams t join Employees e on t.team_id = e.team_id where employee_id = {0}'.format(employee_id))
+    cursor.execute('select t.team_id, team_name, meeting_time, department_id from Teams t join Employees e on t.team_id = e.team_id where employee_id = {0}'.format(employee_id))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
+        row_dict = dict(zip(row_headers, row))
+        meeting_time = row_dict.get('meeting_time')
+        if meeting_time:
+            # Extract the hours, minutes, and seconds from the timedelta object
+            hours, remainder = divmod(meeting_time.seconds, 3600)
+            minutes, seconds = divmod(remainder, 60)
+            # Format the time as a string in the format HH:MM:SS
+            time_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+        row_dict['meeting_time'] = time_str
+        json_data.append(row_dict)
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
