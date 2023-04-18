@@ -51,36 +51,35 @@ def create_employee():
 def update_employee(employee_id):
     data = request.json
     
-    employee_id = data["employee_id"]
-    first_name = data["first_name"]
-    last_name = data["last_name"]
-    country = data["country"]
-    city = data["city"]
-    state = data["state"]
-    zip_code = data["zip_code"]
-    gender = data["gender"]
-    date_of_birth = data["date_of_birth"]
-    salary = data["salary"]
-    project_id = data["project_id"]
-    is_remote = data["is_remote"]
-    supervisor_id = data["supervisor_id"]
-    team_id = data["team_id"]
+    first_name = data["updated_first_name"]
+    last_name = data["updated_last_name"]
+    country = data["updated_country"]
+    city = data["updated_city"]
+    state = data["updated_state"]
+    zip_code = data["updated_zip_code"]
+    gender = data["updated_gender"]
+    date_of_birth = data["updated_date_of_birth"]
+    salary = data["updated_salary"]
+    project_id = data["updated_project_id"]
+    is_remote = data["updated_is_remote"]
+    supervisor_id = data["updated_supervisor_id"]
+    team_id = data["updated_team_id"]
 
     query = 'update Employees set '
-    query += str(employee_id) + ', "'
-    query += first_name + '", "'
-    query += last_name + '", "'
-    query += country + '", "'
-    query += city + '", "'
-    query += state + '", "'
-    query += zip_code + '", "'
-    query += gender + '", "'
-    query += date_of_birth + '", "'
-    query += salary + '", '
-    query += str(project_id) + ', '
-    query += str(is_remote) + ', '
-    query += str(supervisor_id) + ', '
-    query += str(team_id) + ')'
+    query += 'first_name = "' + first_name + '", '
+    query += 'last_name = "' + last_name + '", '
+    query += 'country = "' + country + '", '
+    query += 'city = "' + city + '", '
+    query += 'state = "' + state + '", '
+    query += 'zip_code = "' + zip_code + '", '
+    query += 'gender = "' + gender + '", '
+    query += 'date_of_birth = "' + date_of_birth + '", '
+    query += 'salary = "' + salary + '", '
+    query += 'project_id = ' + str(project_id) + ', '
+    query += 'is_remote = ' + str(is_remote) + ', '
+    query += 'supervisor_id = ' + str(supervisor_id) + ', '
+    query += 'team_id = ' + str(team_id) + ' '
+    query += 'where employee_id = ' + str(employee_id) + ' '
 
     cursor = db.get_db().cursor()
     cursor.execute(query)

@@ -406,15 +406,28 @@
     "method": "PUT",
     "sortNum": 130000,
     "created": "2023-04-18T21:56:04.035Z",
-    "modified": "2023-04-18T22:12:59.310Z",
+    "modified": "2023-04-18T22:40:59.570Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"employee_id\": 50,\n  \"first_name\": \"Bob\",\n  \"last_name\": \"Kim\",\n  \"country\": \"United States\",\n  \"city\": \"Austin\",\n  \"state\": \"Texas\",\n  \"zip_code\": \"12345\",\n  \"gender\": \"Male\",\n  \"date_of_birth\": \"1970-12-20 03:03:04\",\n  \"salary\": \"$500000.00\",\n  \"project_id\": 35,\n  \"is_remote\": true,\n  \"supervisor_id\": 10,\n  \"team_id\": 23\n}",
+      "raw": "{\n  \"updated_first_name\": \"Bob\",\n  \"updated_last_name\": \"Kim\",\n  \"updated_country\": \"United States\",\n  \"updated_city\": \"Austin\",\n  \"updated_state\": \"Texas\",\n  \"updated_zip_code\": \"12345\",\n  \"updated_gender\": \"Male\",\n  \"updated_date_of_birth\": \"1970-12-20 03:03:04\",\n  \"updated_salary\": \"$500000.00\",\n  \"updated_project_id\": 35,\n  \"updated_is_remote\": false,\n  \"updated_supervisor_id\": 10,\n  \"updated_team_id\": 23\n}",
       "form": []
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "d8c30297-39a6-409a-ac3c-d880e2ce8618",
