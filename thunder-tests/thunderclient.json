@@ -402,13 +402,18 @@
     "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
     "containerId": "",
     "name": "update_employee",
-    "url": "",
+    "url": "localhost:8001/e/employees/50",
     "method": "PUT",
     "sortNum": 130000,
     "created": "2023-04-18T21:56:04.035Z",
-    "modified": "2023-04-18T21:56:09.208Z",
+    "modified": "2023-04-18T22:12:59.310Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\": 50,\n  \"first_name\": \"Bob\",\n  \"last_name\": \"Kim\",\n  \"country\": \"United States\",\n  \"city\": \"Austin\",\n  \"state\": \"Texas\",\n  \"zip_code\": \"12345\",\n  \"gender\": \"Male\",\n  \"date_of_birth\": \"1970-12-20 03:03:04\",\n  \"salary\": \"$500000.00\",\n  \"project_id\": 35,\n  \"is_remote\": true,\n  \"supervisor_id\": 10,\n  \"team_id\": 23\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -416,13 +421,18 @@
     "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
     "containerId": "",
     "name": "update_project",
-    "url": "",
+    "url": "localhost:8001/p/projects/1/",
     "method": "PUT",
     "sortNum": 80000,
     "created": "2023-04-18T21:56:16.126Z",
-    "modified": "2023-04-18T21:56:20.225Z",
+    "modified": "2023-04-18T22:04:49.843Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"client_id\": 1,\n  \"project_name\": \"Facebook\",\n  \"project_difficulty\": \"Medium\",\n  \"project_desc\": \"Horrible website that harms children\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]
