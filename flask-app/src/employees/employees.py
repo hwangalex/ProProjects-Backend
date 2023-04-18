@@ -131,11 +131,11 @@ def get_all_employees():
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get all employees (ID) in a specific team
+# Get all employees (ID, fname, lname) in a specific team
 @employees.route('/employees/team/<team_id>/', methods=['GET'])
 def get_employees_on_team(team_id):
     cursor = db.get_db().cursor()
-    cursor.execute('select employee_id from Employees where team_id = {0}'.format(team_id))
+    cursor.execute('select employee_id, first_name, last_name from Employees where team_id = {0}'.format(team_id))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
