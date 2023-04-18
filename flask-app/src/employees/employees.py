@@ -146,6 +146,21 @@ def get_employees_on_team(team_id):
     the_response.mimetype = 'application/json'
     return the_response
 
+# Get information about a given employee's team
+@employees.route('/employees/team_details/<employee_id>/', methods=['GET'])
+def get_employee_team(employee_id):
+    cursor = db.get_db().cursor()
+    cursor.execute('select t.team_id, team_name, department_id from Teams t join Employees e on t.team_id = e.team_id where employee_id = {0}'.format(employee_id))
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 # Get all employees (ID) that are remote
 @employees.route('/employees/is_remote/', methods=['GET'])
 def get_employee_remote():

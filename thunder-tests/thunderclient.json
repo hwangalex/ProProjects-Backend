@@ -282,5 +282,19 @@
         "value": "Success"
       }
     ]
+  },
+  {
+    "_id": "d1171a01-d67c-49f5-a193-79e18efcb592",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "get_employee_team",
+    "url": "localhost:8001/e/employees/team_details/1",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-04-18T20:07:34.681Z",
+    "modified": "2023-04-18T20:09:05.329Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
