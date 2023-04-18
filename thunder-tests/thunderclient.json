@@ -288,5 +288,141 @@
         "value": "Success"
       }
     ]
+  },
+  {
+    "_id": "f300867f-c569-4013-875d-e749928b8a5a",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_detail",
+    "url": "localhost:8001/p/projects/1",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-04-18T21:51:28.232Z",
+    "modified": "2023-04-18T21:52:22.473Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.project_id",
+        "action": "equal",
+        "value": "1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.project_name",
+        "action": "equal",
+        "value": "Voltsillam"
+      }
+    ]
+  },
+  {
+    "_id": "821bba3e-f1c7-4920-90dd-9747d9af3aef",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_tickets",
+    "url": "localhost:8001/p/projects/1/tickets",
+    "method": "GET",
+    "sortNum": 17500,
+    "created": "2023-04-18T21:52:40.580Z",
+    "modified": "2023-04-18T21:53:10.937Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "69d3b320-8870-4179-9d52-28a5d585459f",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_ticket_types",
+    "url": "localhost:8001/p/projects/1/tickets/type/1",
+    "method": "GET",
+    "sortNum": 18750,
+    "created": "2023-04-18T21:53:32.518Z",
+    "modified": "2023-04-18T21:54:00.281Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "e22ba99e-bf2f-4218-8591-6f57ba074169",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_ticket_detail",
+    "url": "localhost:8001/p/projects/1/tickets/1",
+    "method": "GET",
+    "sortNum": 19375,
+    "created": "2023-04-18T21:54:25.100Z",
+    "modified": "2023-04-18T21:55:07.413Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.ticket_id",
+        "action": "equal",
+        "value": "1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.ticket_name",
+        "action": "equal",
+        "value": "Capsicum pubescens Ruiz & Pav."
+      }
+    ]
+  },
+  {
+    "_id": "5ca96139-4b4a-4f85-94cf-c1ff885f2a5f",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "update_employee",
+    "url": "",
+    "method": "PUT",
+    "sortNum": 130000,
+    "created": "2023-04-18T21:56:04.035Z",
+    "modified": "2023-04-18T21:56:09.208Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "d8c30297-39a6-409a-ac3c-d880e2ce8618",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "update_project",
+    "url": "",
+    "method": "PUT",
+    "sortNum": 80000,
+    "created": "2023-04-18T21:56:16.126Z",
+    "modified": "2023-04-18T21:56:20.225Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
