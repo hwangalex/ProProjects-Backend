@@ -116,7 +116,7 @@
     "method": "GET",
     "sortNum": 80000,
     "created": "2023-04-17T01:18:48.476Z",
-    "modified": "2023-04-17T01:20:00.410Z",
+    "modified": "2023-04-18T18:23:03.618Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -127,10 +127,10 @@
         "value": "Subin"
       },
       {
-        "type": "res-time",
+        "type": "res-code",
         "custom": "",
-        "action": "<=",
-        "value": "10"
+        "action": "equal",
+        "value": "200"
       }
     ]
   },
@@ -138,12 +138,12 @@
     "_id": "17aa771a-fc0b-42e2-a4df-684ef0d58e62",
     "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
     "containerId": "",
-    "name": "get_projects",
-    "url": "http://localhost:8001/p/projects",
+    "name": "get_all_projects",
+    "url": "localhost:8001/p/projects",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-17T18:15:57.700Z",
-    "modified": "2023-04-18T03:05:23.699Z",
+    "modified": "2023-04-18T20:23:29.587Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -166,11 +166,11 @@
     "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
     "containerId": "",
     "name": "create_project",
-    "url": "http://localhost:8001/p/projects",
+    "url": "localhost:8001/p/projects",
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-04-17T22:26:19.041Z",
-    "modified": "2023-04-18T03:08:08.890Z",
+    "modified": "2023-04-18T20:23:39.617Z",
     "headers": [],
     "params": [],
     "body": {
@@ -184,6 +184,12 @@
         "custom": "",
         "action": "equal",
         "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
       }
     ]
   },
@@ -192,11 +198,11 @@
     "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
     "containerId": "",
     "name": "delete_project",
-    "url": "http://localhost:8001/p/projects",
+    "url": "localhost:8001/p/projects",
     "method": "DELETE",
     "sortNum": 30000,
     "created": "2023-04-17T22:45:42.721Z",
-    "modified": "2023-04-17T22:46:08.271Z",
+    "modified": "2023-04-18T20:23:43.694Z",
     "headers": [],
     "params": [],
     "body": {
@@ -204,18 +210,255 @@
       "raw": "{\n  \"project_id\": 41\n}",
       "form": []
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "96805993-79db-4bc5-ba03-c6533bd047ce",
     "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
     "containerId": "",
     "name": "create_employee",
-    "url": "",
-    "method": "GET",
+    "url": "localhost:8001/e/employees",
+    "method": "POST",
     "sortNum": 100000,
     "created": "2023-04-18T02:55:56.248Z",
-    "modified": "2023-04-18T02:55:56.248Z",
-    "headers": []
+    "modified": "2023-04-18T20:53:31.705Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\": 50,\n  \"first_name\": \"Bob\",\n  \"last_name\": \"Kim\",\n  \"country\": \"United States\",\n  \"city\": \"Austin\",\n  \"state\": \"Texas\",\n  \"zip_code\": \"12345\",\n  \"gender\": \"Male\",\n  \"date_of_birth\": \"1970-12-20 03:03:04\",\n  \"salary\": \"$123450.00\",\n  \"project_id\": 35,\n  \"is_remote\": true,\n  \"supervisor_id\": 10,\n  \"team_id\": 23\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "987dc081-ed40-40d2-9524-4607b067d6ba",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "delete_employee",
+    "url": "localhost:8001/e/employees/",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2023-04-18T18:14:46.831Z",
+    "modified": "2023-04-18T18:42:37.885Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\": 50\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "f300867f-c569-4013-875d-e749928b8a5a",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_detail",
+    "url": "localhost:8001/p/projects/1",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-04-18T21:51:28.232Z",
+    "modified": "2023-04-18T21:52:22.473Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.project_id",
+        "action": "equal",
+        "value": "1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.project_name",
+        "action": "equal",
+        "value": "Voltsillam"
+      }
+    ]
+  },
+  {
+    "_id": "821bba3e-f1c7-4920-90dd-9747d9af3aef",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_tickets",
+    "url": "localhost:8001/p/projects/1/tickets",
+    "method": "GET",
+    "sortNum": 17500,
+    "created": "2023-04-18T21:52:40.580Z",
+    "modified": "2023-04-18T21:53:10.937Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "69d3b320-8870-4179-9d52-28a5d585459f",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_ticket_types",
+    "url": "localhost:8001/p/projects/1/tickets/type/1",
+    "method": "GET",
+    "sortNum": 18750,
+    "created": "2023-04-18T21:53:32.518Z",
+    "modified": "2023-04-18T21:54:00.281Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      }
+    ]
+  },
+  {
+    "_id": "e22ba99e-bf2f-4218-8591-6f57ba074169",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "get_project_ticket_detail",
+    "url": "localhost:8001/p/projects/1/tickets/1",
+    "method": "GET",
+    "sortNum": 19375,
+    "created": "2023-04-18T21:54:25.100Z",
+    "modified": "2023-04-18T21:55:07.413Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.ticket_id",
+        "action": "equal",
+        "value": "1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.ticket_name",
+        "action": "equal",
+        "value": "Capsicum pubescens Ruiz & Pav."
+      }
+    ]
+  },
+  {
+    "_id": "5ca96139-4b4a-4f85-94cf-c1ff885f2a5f",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "update_employee",
+    "url": "localhost:8001/e/employees/50",
+    "method": "PUT",
+    "sortNum": 130000,
+    "created": "2023-04-18T21:56:04.035Z",
+    "modified": "2023-04-18T22:40:59.570Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"updated_first_name\": \"Bob\",\n  \"updated_last_name\": \"Kim\",\n  \"updated_country\": \"United States\",\n  \"updated_city\": \"Austin\",\n  \"updated_state\": \"Texas\",\n  \"updated_zip_code\": \"12345\",\n  \"updated_gender\": \"Male\",\n  \"updated_date_of_birth\": \"1970-12-20 03:03:04\",\n  \"updated_salary\": \"$500000.00\",\n  \"updated_project_id\": 35,\n  \"updated_is_remote\": false,\n  \"updated_supervisor_id\": 10,\n  \"updated_team_id\": 23\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "d8c30297-39a6-409a-ac3c-d880e2ce8618",
+    "colId": "113947ae-47d5-4d4c-9e70-a95534c959cc",
+    "containerId": "",
+    "name": "update_project",
+    "url": "localhost:8001/p/projects/1",
+    "method": "PUT",
+    "sortNum": 80000,
+    "created": "2023-04-18T21:56:16.126Z",
+    "modified": "2023-04-18T22:30:15.793Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"updated_client_id\": 1,\n  \"updated_project_name\": \"Facebook\",\n  \"updated_project_difficulty\": \"Hard\",\n  \"updated_project_desc\": \"Horrible website that harms children\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   }
 ]
