@@ -185,11 +185,11 @@ def get_employee_remote():
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get the name of the project(s) that an employee is working on
+# Get the name and ID of the project(s) that an employee is working on
 @employees.route('/employees/<employee_id>/projects', methods=['GET'])
 def get_employee_project(employee_id):
     cursor = db.get_db().cursor()
-    cursor.execute('select project_name from Projects p join Employees e on e.project_id = p.project_id where employee_id = {0}'.format(employee_id))
+    cursor.execute('select project_name, project_id from Projects p join Employees e on e.project_id = p.project_id where employee_id = {0}'.format(employee_id))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
