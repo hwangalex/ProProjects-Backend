@@ -189,7 +189,7 @@ def get_employee_remote():
 @employees.route('/employees/<employee_id>/projects', methods=['GET'])
 def get_employee_project(employee_id):
     cursor = db.get_db().cursor()
-    cursor.execute('select project_name, project_id from Projects p join Employees e on e.project_id = p.project_id where employee_id = {0}'.format(employee_id))
+    cursor.execute('select project_name, p.project_id from Projects p join Employees e on e.project_id = p.project_id where employee_id = {0}'.format(employee_id))
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
