@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-04-17T00:51:29.589Z",
-    "modified": "2023-04-17T01:07:21.170Z",
+    "modified": "2023-04-19T16:54:12.788Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -19,10 +19,10 @@
         "value": "200"
       },
       {
-        "type": "Content-Type",
+        "type": "Content-Length",
         "custom": "",
         "action": "equal",
-        "value": "application/json"
+        "value": "105605"
       }
     ]
   },
@@ -35,7 +35,7 @@
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-04-17T00:53:13.107Z",
-    "modified": "2023-04-17T01:07:25.163Z",
+    "modified": "2023-04-19T16:55:22.405Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -50,6 +50,12 @@
         "custom": "json.country",
         "action": "equal",
         "value": "China"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
       }
     ]
   },
@@ -62,7 +68,7 @@
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-04-17T01:08:13.818Z",
-    "modified": "2023-04-17T01:09:59.794Z",
+    "modified": "2023-04-19T16:55:12.093Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -73,10 +79,16 @@
         "value": "[47,129,173,198,248,259,275]"
       },
       {
-        "type": "Content-Type",
+        "type": "json-query",
+        "custom": "json.first_name",
+        "action": "equal",
+        "value": "[\"Catharina\",\"Tedmund\",\"Mattheus\",\"Kaela\",\"Roosevelt\",\"Adrianne\",\"Carine\"]"
+      },
+      {
+        "type": "res-code",
         "custom": "",
         "action": "equal",
-        "value": "application/json"
+        "value": "200"
       }
     ]
   },
@@ -89,7 +101,7 @@
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-04-17T01:13:54.348Z",
-    "modified": "2023-04-17T01:18:28.110Z",
+    "modified": "2023-04-19T16:53:53.784Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -100,10 +112,10 @@
         "value": "4015"
       },
       {
-        "type": "Content-Type",
+        "type": "res-code",
         "custom": "",
         "action": "equal",
-        "value": "application/json"
+        "value": "200"
       }
     ]
   },
@@ -116,7 +128,7 @@
     "method": "GET",
     "sortNum": 80000,
     "created": "2023-04-17T01:18:48.476Z",
-    "modified": "2023-04-18T18:23:03.618Z",
+    "modified": "2023-04-19T16:54:51.133Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -131,6 +143,12 @@
         "custom": "",
         "action": "equal",
         "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.project_id",
+        "action": "equal",
+        "value": "35"
       }
     ]
   },
@@ -143,7 +161,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-17T18:15:57.700Z",
-    "modified": "2023-04-18T20:23:29.587Z",
+    "modified": "2023-04-19T17:02:35.806Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -154,10 +172,10 @@
         "value": "200"
       },
       {
-        "type": "Content-Type",
+        "type": "Content-Length",
         "custom": "",
         "action": "equal",
-        "value": "application/json"
+        "value": "11081"
       }
     ]
   },
@@ -298,7 +316,7 @@
     "method": "GET",
     "sortNum": 15000,
     "created": "2023-04-18T21:51:28.232Z",
-    "modified": "2023-04-18T21:52:22.473Z",
+    "modified": "2023-04-19T16:59:46.104Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -312,7 +330,13 @@
         "type": "json-query",
         "custom": "json.project_name",
         "action": "equal",
-        "value": "Voltsillam"
+        "value": "Facebook"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
       }
     ]
   },
@@ -325,7 +349,7 @@
     "method": "GET",
     "sortNum": 17500,
     "created": "2023-04-18T21:52:40.580Z",
-    "modified": "2023-04-18T21:53:10.937Z",
+    "modified": "2023-04-19T17:02:29.251Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -336,10 +360,16 @@
         "value": "200"
       },
       {
-        "type": "Content-Type",
+        "type": "json-query",
+        "custom": "json.ticket_id",
+        "action": "equal",
+        "value": "[1,41,81,121,161,201,241,281,321,361,401,441,481]"
+      },
+      {
+        "type": "Content-Length",
         "custom": "",
         "action": "equal",
-        "value": "application/json"
+        "value": "3913"
       }
     ]
   },
@@ -352,7 +382,7 @@
     "method": "GET",
     "sortNum": 18750,
     "created": "2023-04-18T21:53:32.518Z",
-    "modified": "2023-04-18T21:54:00.281Z",
+    "modified": "2023-04-19T17:01:51.803Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -367,6 +397,18 @@
         "custom": "",
         "action": "equal",
         "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.ticket_type_id",
+        "action": "equal",
+        "value": "[1,1]"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.project_id",
+        "action": "equal",
+        "value": "[1,1]"
       }
     ]
   },
@@ -379,7 +421,7 @@
     "method": "GET",
     "sortNum": 19375,
     "created": "2023-04-18T21:54:25.100Z",
-    "modified": "2023-04-18T21:55:07.413Z",
+    "modified": "2023-04-19T17:02:04.884Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -394,6 +436,12 @@
         "custom": "json.ticket_name",
         "action": "equal",
         "value": "Capsicum pubescens Ruiz & Pav."
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
       }
     ]
   },
@@ -470,7 +518,7 @@
     "method": "GET",
     "sortNum": 140000,
     "created": "2023-04-19T14:18:29.888Z",
-    "modified": "2023-04-19T14:21:13.533Z",
+    "modified": "2023-04-19T16:58:33.536Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -479,6 +527,18 @@
         "custom": "json.ticket_id",
         "action": "equal",
         "value": "[204,391]"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.ticket_name",
+        "action": "equal",
+        "value": "[\"Acacia berlandieri Benth.\",\"Ichnanthus P. Beauv.\"]"
       }
     ]
   }
