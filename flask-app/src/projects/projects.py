@@ -36,21 +36,45 @@ def get_project_detail(project_id):
     return the_response
 
 # Create a new project
+@projects.route('/projects', methods=['POST'])
+def create_project():
+    data = request.json
+    
+    client_id = data["client_id"]
+    project_name = data["project_name"]
+    project_difficulty = data["project_difficulty"]
+    project_desc = data["project_desc"]
+    
+    query = 'insert into Projects (client_id, project_name, project_difficulty, project_desc) values ('
+    query += str(client_id) + ', "'
+    query += project_name + '", "'
+    query += project_difficulty + '", "'
+    query += project_desc + '")'
+
+    
+    current_app.logger.info(query)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return ("Success")
+
+# Update a particular project
 @projects.route('/projects/<project_id>', methods=['PUT'])
 def update_project(project_id):
     data = request.json
-
+    
     client_id = data["updated_client_id"]
     project_name = data["updated_project_name"]
     project_difficulty = data["updated_project_difficulty"]
     project_desc = data["updated_project_desc"]
-
+    
     query = 'update Projects set '
-    query += 'client_id = ' + str(client_id) + ', '
-    query += 'project_name = "' + project_name + '", '
-    query += 'project_difficulty = "' + project_difficulty + '", '
-    query += 'project_desc = "' + project_desc + '" '
-    query += 'where project_id = ' + str(project_id) + ' '
+    query += str(project_id) + '",'
+    query += str(client_id) + ', "'
+    query += project_name + '", '
+    query += project_difficulty + '",'
+    query += project_desc + ')'
 
     cursor = db.get_db().cursor()
     cursor.execute(query)

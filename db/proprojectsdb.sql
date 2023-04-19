@@ -3069,3 +3069,16 @@ VALUES (1, 1)
      , (8, 278)
      , (9, 279)
      , (10, 280);
+
+
+
+
+
+
+SELECT *
+FROM Projects;
+
+SELECT *
+FROM Tickets;
+
+
