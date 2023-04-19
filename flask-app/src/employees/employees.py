@@ -200,3 +200,18 @@ def get_employee_project(employee_id):
     the_response.mimetype = 'application/json'
     return the_response
 
+# Get the tickets that an employee is working on
+@employees.route('/employees/<employee_id>/tickets', methods=['GET'])
+def get_employee_tickets(employee_id):
+    cursor = db.get_db().cursor()
+    cursor.execute('select t.ticket_id, ticket_name, description from Ticket_Assignments ta join Tickets t on ta.ticket_id = t.ticket_id where employee_id = {0}'.format(employee_id))
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+

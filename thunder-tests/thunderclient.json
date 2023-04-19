@@ -460,5 +460,26 @@
         "value": "Success"
       }
     ]
+  },
+  {
+    "_id": "4d7ead73-3ed3-4ce6-baff-2def42605c03",
+    "colId": "25ebb54e-4035-497f-8838-6bb4a8909f67",
+    "containerId": "",
+    "name": "get_employee_tickets",
+    "url": "localhost:8001/e/employees/2/tickets",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2023-04-19T14:18:29.888Z",
+    "modified": "2023-04-19T14:21:13.533Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.ticket_id",
+        "action": "equal",
+        "value": "[204,391]"
+      }
+    ]
   }
 ]
