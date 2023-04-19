@@ -89,7 +89,7 @@ def update_employee(employee_id):
 
 # Delete a particular employee
 @employees.route('/employees/', methods=['DELETE'])
-def employee():
+def delete_employee():
     data = request.json
     employee_id = data["employee_id"]
     
